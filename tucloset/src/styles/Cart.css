@@ -1,0 +1,39 @@
+.cart {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.cartTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cartItemInfo {
+  flex-grow: 1;
+}
+
+.cartItemName {
+  font-size: 18px;
+}
+
+.cartItemPrice {
+  font-size: 14px;
+  color: #888;
+}
+
+.cartItemDelete {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

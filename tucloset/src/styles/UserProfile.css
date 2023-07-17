@@ -1,0 +1,50 @@
+.userProfile {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.loading {
+  text-align: center;
+  margin: 20px;
+  font-size: 18px;
+}
+
+.product {
+  margin-bottom: 10px;
+}
+
+.product input {
+  margin-bottom: 10px;
+}
+
+.product button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.newProduct {
+  margin-top: 20px;
+}
+
+.newProduct input {
+  margin-bottom: 10px;
+}
+
+.newProduct button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

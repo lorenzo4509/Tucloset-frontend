@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../services/api';
+import { signup, createCart } from '../services/api';
+import '../styles/SignupForm.css';
 
 const SignupForm = () => {
   const [name, setName] = useState('');
@@ -12,40 +13,53 @@ const SignupForm = () => {
     e.preventDefault();
 
     try {
-      const user = await signup(name, password, email);
-      // Mostrar un mensaje de éxito al usuario
+      const user = await signup(name, email, password);
+      const { userId } = user.user
+      await createCart(userId, [])
       alert('¡Registro exitoso! Por favor, inicia sesión.');
-
-      // Redirigir al usuario a la página de inicio de sesión
       navigate('/login');
     } catch (error) {
-      // Manejar el error
+      console.error('Error al crear una cuenta', error);
     }
   };
 
   return (
-    <div>
-      <h2>Crear cuenta</h2>
+    <div className="formContainer">
+      <h2 className="formTitle">Crear cuenta</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nombre de usuario"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Correo electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit">Crear cuenta</button>
+        <div className="formGroup">
+          <label className="formLabel">Nombre de usuario</label>
+          <input
+            className="formInput"
+            type="text"
+            placeholder="Nombre de usuario"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Contraseña</label>
+          <input
+            className="formInput"
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Correo electrónico</label>
+          <input
+            className="formInput"
+            type="email"
+            placeholder="Correo electrónico"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <button className="formButton" type="submit">
+          Crear cuenta
+        </button>
       </form>
     </div>
   );

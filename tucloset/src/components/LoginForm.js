@@ -1,38 +1,71 @@
-import React, { useState } from 'react';
-import { login } from '../services/api';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { login, createSession, isAuthenticated } from "../services/api";
+import "../styles/LoginForm.css";
 
 const LoginForm = () => {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/");
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (email === "") {
+      alert("El campo 'email' es obligatorio.");
+      return;
+    }
+
     try {
-      const user = await login(name, password);
-      // Hacer algo con el usuario logueado
+      const user = await login(email, password);
+      const { userId, token } = user;
+
+      const session = await createSession(userId, token);
+
+      localStorage.setItem('id', userId)
+      localStorage.setItem('token', token)
+
+      navigate("/");
     } catch (error) {
-      // Manejar el error
+      console.error("Error al iniciar sesión", error);
     }
   };
 
   return (
-    <div>
+    <div className="loginContainer">
       <h2>Iniciar sesión</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nombre de usuario"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Iniciar sesión</button>
+        <div>
+          <label>Email:</label>
+          <input
+            className="loginInput"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Contraseña:</label>
+          <input
+            className="loginInput"
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button className="loginButton" type="submit">
+          Iniciar sesión
+        </button>
       </form>
     </div>
   );

@@ -1,45 +1,58 @@
-import React, { useEffect, useState } from 'react';
-import { getCart, deleteCartItem } from '../services/api';
+import React, { useEffect, useState } from "react";
+import { getCart, deleteCartItem, getProductById } from "../services/api";
+import "../styles/Cart.css";
 
-const Cart = ({ cartId }) => {
-  const [cart, setCart] = useState(null);
+const Cart = ({ userId }) => {
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const fetchedCart = await getCart(cartId);
-        setCart(fetchedCart);
+        const fetchedCart = await getCart(userId);
+        fetchedCart.items.forEach(async (item) => {
+          const newItem = await getProductById(item.productId);
+          setItems((prevState) => [...prevState, newItem.product]);
+        });
+       
       } catch (error) {
         // Manejar el error
       }
     };
 
     fetchCart();
-  }, [cartId]);
+  }, [userId]);
 
   const handleDeleteItem = async (itemId) => {
     try {
-      await deleteCartItem(cartId, itemId);
+      await deleteCartItem(userId, itemId);
+
       // Actualizar el carrito después de eliminar el artículo
-      const updatedCart = await getCart(cartId);
-      setCart(updatedCart);
+      const updatedCart = await getCart(userId);
+      setItems(updatedCart);
     } catch (error) {
       // Manejar el error
     }
   };
 
-  if (!cart) {
-    return <div>Cargando carrito...</div>;
+  if (items.length === 0) {
+    return <div className="page">Cargando carrito...</div>;
   }
 
   return (
-    <div>
-      <h2>Carrito de compras</h2>
-      {cart.items.map((item) => (
-        <div key={item.id}>
-          <h3>{item.name}</h3>
-          <p>Precio: {item.price}</p>
-          <button onClick={() => handleDeleteItem(item.id)}>Eliminar</button>
+    <div className="cart">
+      <h2 className="cartTitle">Carrito de compras</h2>
+      {items.map((item) => (
+        <div className="cartItem" key={item.id}>
+          <div className="cartItemInfo">
+            <h3 className="cartItemName">{item.name}</h3>
+            <p className="cartItemPrice">Precio: {item.price}</p>
+          </div>
+          <button
+            className="cartItemDelete"
+            onClick={() => handleDeleteItem(item.id)}
+          >
+            Eliminar
+          </button>
         </div>
       ))}
     </div>

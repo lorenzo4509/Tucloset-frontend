@@ -1,0 +1,51 @@
+.navbar {
+  background-color: #4caf50;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbarList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarItem {
+  display: inline-block;
+}
+
+.navbarLink {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbarLink:hover {
+  background-color: #333;
+}
+
+.navbarLink.active {
+  background-color: #444;
+}
+
+.navbarLink.home {
+  font-weight: bold;
+}
+
+.navbarLink.login {
+  color: rgb(247, 244, 244);
+}
+
+.navbarLink.signup {
+  color: rgb(255, 255, 255);
+}
+
+.navbarTitle {
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  color: #fff;
+  margin: 0;
+}
