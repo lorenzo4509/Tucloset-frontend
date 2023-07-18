@@ -2,9 +2,10 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .loading {
@@ -15,36 +16,122 @@
 
 .product {
   margin-bottom: 10px;
-}
-
-.product input {
-  margin-bottom: 10px;
-}
-
-.product button {
-  margin-right: 5px;
-  padding: 5px 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
-  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.newProduct {
-  margin-top: 20px;
-}
-
+.product input,
 .newProduct input {
+  width: 100%;
+  padding: 8px;
   margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
+.product button,
 .newProduct button {
-  margin-top: 10px;
-  padding: 5px 10px;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right: 5px;
   background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
+}
+
+.product button:hover,
+.newProduct button:hover {
+  background-color: #45a049;
+}
+
+.optionsTitle {
+  margin-top: 0;
+}
+
+.toggleButton {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggleButton:hover {
+  background-color: #45a049;
+}
+
+.editInput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.saveButton {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.saveButton:hover {
+  background-color: #45a049;
+}
+
+.editButton,
+.deleteButton {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  background-color: #45a049;
+}
+
+.addButton {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.addButton:hover {
+  background-color: #45a049;
+}
+
+.newInput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
 }

@@ -101,8 +101,8 @@ const UserProfile = ({ userId }) => {
     <div className="userProfile">
       <h2>{user.name}</h2>
       <h2>{user.email}</h2>
-      <h3>Opciones</h3>
-      <button onClick={toggleShowMyProducts}>
+      <h3 className="optionsTitle">Opciones</h3>
+      <button className="toggleButton" onClick={toggleShowMyProducts}>
         {showMyProducts ? "Ocultar Mis Productos" : "Mostrar Mis Productos"}
       </button>
       {showMyProducts && (
@@ -121,6 +121,7 @@ const UserProfile = ({ userId }) => {
                         name: e.target.value,
                       })
                     }
+                    className="editInput"
                   />
                   <input
                     type="text"
@@ -131,6 +132,7 @@ const UserProfile = ({ userId }) => {
                         description: e.target.value,
                       })
                     }
+                    className="editInput"
                   />
                   <input
                     type="text"
@@ -141,6 +143,7 @@ const UserProfile = ({ userId }) => {
                         price: e.target.value,
                       })
                     }
+                    className="editInput"
                   />
                   <input
                     type="number"
@@ -151,17 +154,18 @@ const UserProfile = ({ userId }) => {
                         quantity: e.target.value,
                       })
                     }
+                    className="editInput"
                   />
-                  <button onClick={handleUpdateProduct}>Guardar</button>
+                  <button className="saveButton" onClick={handleUpdateProduct}>Guardar</button>
                 </div>
               ) : (
                 <div>
                   <h4>{product.name}</h4>
                   <p>{product.price}</p>
-                  <button onClick={() => handleEditProduct(product._id)}>
+                  <button className="editButton" onClick={() => handleEditProduct(product._id)}>
                     Editar
                   </button>
-                  <button onClick={() => handleDeleteProduct(product._id)}>
+                  <button className="deleteButton" onClick={() => handleDeleteProduct(product._id)}>
                     Eliminar
                   </button>
                 </div>
@@ -179,6 +183,7 @@ const UserProfile = ({ userId }) => {
           onChange={(e) =>
             setNewProduct({ ...newProduct, name: e.target.value })
           }
+          className="newInput"
         />
         <input
           type="text"
@@ -187,6 +192,7 @@ const UserProfile = ({ userId }) => {
           onChange={(e) =>
             setNewProduct({ ...newProduct, description: e.target.value })
           }
+          className="newInput"
         />
         <input
           type="text"
@@ -195,6 +201,7 @@ const UserProfile = ({ userId }) => {
           onChange={(e) =>
             setNewProduct({ ...newProduct, price: e.target.value })
           }
+          className="newInput"
         />
         <input
           type="number"
@@ -203,8 +210,9 @@ const UserProfile = ({ userId }) => {
           onChange={(e) =>
             setNewProduct({ ...newProduct, quantity: e.target.value })
           }
+          className="newInput"
         />
-        <button onClick={handleAddProduct}>Agregar Producto</button>
+        <button className="addButton" onClick={handleAddProduct}>Agregar Producto</button>
       </div>
     </div>
   );
