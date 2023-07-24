@@ -45,7 +45,7 @@ const Cart = ({ userId }) => {
         <div className="cartItem" key={item.id}>
           <div className="cartItemInfo">
             <h3 className="cartItemName">{item.name}</h3>
-            <p className="cartItemPrice">Precio: {item.price}</p>
+            <p className="cartItemPrice">Precio: {item.price} $</p>
           </div>
           <button
             className="cartItemDelete"

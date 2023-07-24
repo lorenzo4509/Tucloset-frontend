@@ -39,10 +39,10 @@ const LoginForm = () => {
 
   return (
     <div className="loginContainer">
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
+      <h2 className="loginTitle">Iniciar sesión</h2>
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <div className="loginFormGroup">
+          <label className="loginLabel">Email:</label>
           <input
             className="loginInput"
             type="text"
@@ -52,8 +52,8 @@ const LoginForm = () => {
             required
           />
         </div>
-        <div>
-          <label>Contraseña:</label>
+        <div className="loginFormGroup">
+          <label className="loginLabel">Contraseña:</label>
           <input
             className="loginInput"
             type="password"

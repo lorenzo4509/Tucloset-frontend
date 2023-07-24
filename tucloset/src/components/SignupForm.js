@@ -14,8 +14,8 @@ const SignupForm = () => {
 
     try {
       const user = await signup(name, email, password);
-      const { userId } = user.user
-      await createCart(userId, [])
+      const { userId } = user.user;
+      await createCart(userId, []);
       alert('¡Registro exitoso! Por favor, inicia sesión.');
       navigate('/login');
     } catch (error) {
@@ -28,31 +28,40 @@ const SignupForm = () => {
       <h2 className="formTitle">Crear cuenta</h2>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">
-          <label className="formLabel">Nombre de usuario</label>
+          <label htmlFor="username" className="formLabel">
+            Nombre de usuario
+          </label>
           <input
+            id="username"
             className="formInput"
             type="text"
-            placeholder="Nombre de usuario"
+            placeholder="Ingresa tu nombre de usuario"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className="formGroup">
-          <label className="formLabel">Contraseña</label>
+          <label htmlFor="password" className="formLabel">
+            Contraseña
+          </label>
           <input
+            id="password"
             className="formInput"
             type="password"
-            placeholder="Contraseña"
+            placeholder="Ingresa tu contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="formGroup">
-          <label className="formLabel">Correo electrónico</label>
+          <label htmlFor="email" className="formLabel">
+            Correo electrónico
+          </label>
           <input
+            id="email"
             className="formInput"
             type="email"
-            placeholder="Correo electrónico"
+            placeholder="Ingresa tu correo electrónico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
