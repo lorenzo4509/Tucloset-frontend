@@ -6,7 +6,6 @@ import Cart from "./components/Cart";
 import UserProfile from "./components/UserProfile";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
-import styles from "./styles/App.css";
 
 const App = () => {
   const userId = localStorage.getItem('id')

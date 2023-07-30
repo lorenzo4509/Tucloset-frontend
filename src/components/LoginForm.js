@@ -12,7 +12,7 @@ const LoginForm = () => {
     if (isAuthenticated()) {
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const LoginForm = () => {
       const user = await login(email, password);
       const { userId, token } = user;
 
-      const session = await createSession(userId, token);
+      await createSession(userId, token);
 
       localStorage.setItem('id', userId)
       localStorage.setItem('token', token)
