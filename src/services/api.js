@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = 'https://tucloset.fly.dev'
 
 export const getCart = async (cartId) => {
   try {

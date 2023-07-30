@@ -3,7 +3,8 @@ import axios from "axios";
 import { createProduct, updateProduct, deleteProduct, getAllProducts } from "../services/api";
 import "../styles/UserProfile.css";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = 'https://tucloset.fly.dev'
 
 const UserProfile = ({ userId }) => {
   const [user, setUser] = useState(null);
