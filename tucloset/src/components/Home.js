@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts, addProductToCart } from '../services/api';
-import styles from '../styles/Home.css';
+import '../styles/Home.css';
 
 const Home = ({ userId }) => {
   const [products, setProducts] = useState([]);

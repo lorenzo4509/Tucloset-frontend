@@ -46,7 +46,7 @@ export const createSession = async (userId, token) => {
 
 export const logout = async () => {
   try {
-    const response = await axios.post(`${API_URL}/api/sessions/`);
+    const response = await axios.get(`${API_URL}/api/sessions/`);
     return response.data;
   } catch (error) {
     console.error("Error al cerrar la sesión", error);
